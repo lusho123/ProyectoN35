@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+footer {
+    height: 70px;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 700px;
+    overflow-y: auto;
+  }
+  
+  .my-custom-scrollbar-x {
+    position: relative;
+    overflow-x: auto;
+  }

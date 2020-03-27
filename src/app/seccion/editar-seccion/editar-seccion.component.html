@@ -1,0 +1,114 @@
+<!-- <div class="modal-backdrop fade show"></div> -->
+
+
+<form [formGroup]="formulario" (ngSubmit)= "modificarCatalogo()" *ngIf="catalogo">
+    <div class="modal fade" [ngClass]="{'show': editar}" id="modalP" role="dialog" >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Editar Catalogo</h5>
+            <button type="button" class="close"  (click)="cerrar()" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+            <!-- Descripción -->
+            
+            <div class="row mb-3">
+              <div class="col-3">
+                <label><strong>Descripción: </strong></label>
+              </div>
+              <div class="col-9">
+                <input type="text" class="form-control" formControlName="descripcion">
+              </div>
+            </div>
+            
+            <!-- Fecha Alta  -->
+  
+            <div class="row mb-3">
+              <div class="col-3"> 
+                <label><strong>Fecha Alta: </strong></label>
+              </div>
+              <div class="col-3">
+                <label>{{ getFecha(catalogo.fechaAlta) }}</label>
+              </div>
+              <div class="col-3"> 
+                <label><strong>Hora Alta: </strong></label>
+              </div>
+              <div class="col-3">
+                <label>{{ getHora(catalogo.fechaAlta) }}</label>
+              </div>
+            </div>
+            
+            <!-- Fecha Modificación -->
+            
+            <div class="row mb-3">
+              <div class="col-3"> 
+                <label><strong>Fecha Modificación: </strong></label>
+              </div>
+              <div class="col-3">
+                <label>{{ getFecha(catalogo.fechaModificacion) }}</label>
+              </div>
+              <div class="col-3"> 
+                <label><strong>Hora Modificación: </strong></label>
+              </div>
+              <div class="col-3">
+                <label>{{ getHora(catalogo.fechaModificacion) }}</label>
+              </div>
+            </div>
+  
+            <!-- Catalogo Alta -->
+  
+            <div class="row mb-3">
+              <div class="col-3"> 
+                <label><strong>Creado Por: </strong></label>
+              </div>
+              <div class="col-9">
+                <label>{{ catalogo.idUsuarioAlta }}</label>
+              </div>
+            </div>
+            
+            <!-- Catalogo Modificación -->
+  
+            <div class="row mb-3">
+              <div class="col-3"> 
+                <label><strong>Modificado Por: </strong></label>
+              </div>
+              <div class="col-9">
+                <label>{{ catalogo.idUsuarioModificacion }}</label>
+              </div>
+            </div>
+  
+            <!-- Estatus Catalogo -->
+  
+            <div class="row">
+              <div class="col-3"> 
+                <label><strong>Estatus</strong></label>
+              </div>
+              <div class="col-9">
+                <div class="custom-control custom-switch">
+                  <div *ngIf="catalogo.idCatEstatus == 1; else otro">
+                    <input type="checkbox" class="custom-control-input" id="custom" checked disabled>
+                    <label class="custom-control-label" for="custom">Inactivo/Activo</label>
+                  </div>
+                  <ng-template #otro>
+                    <input  type="checkbox" class="custom-control-input" id="custom" disabled>
+                    <label class="custom-control-label" for="custom">Inactivo/Activo</label>
+                  </ng-template>
+  
+                  <!-- <label class="custom-control-label" for="custom">Desactivar/Activar</label> -->
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="cerrar()">Cancelar</button>
+            <button type="button" class="btn btn-success" type="submit" id="guardar">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>

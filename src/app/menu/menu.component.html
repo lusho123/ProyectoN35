@@ -1,0 +1,79 @@
+<!-- Menu de aplicacion -->
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <!-- Logotipo de Thincode -->
+
+    <a class="navbar-brand" href="#">
+      <!-- <font size="5"><strong style="color: #00a5c9;">[</strong> thin<strong>code </strong><strong
+          style="color: #00a5c9;">]</strong></font> -->
+      <img src="assets/pictures/ThinCode.jpg">
+    </a>
+
+    <!-- Boton para el menú responsivo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menú resposivo, no todas las partes tienen opciones. La clase dropdown es quien define quien 
+         puede mostrar opciones. -->
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item dropdown" routerLinkActive="active">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Catálogos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['catalogos','seccion']">Sección</a>
+            <a class="dropdown-item" [routerLink]="['catalogos','area']">Área de Trabajo</a>
+            <a class="dropdown-item">Categoria</a>
+            <a class="dropdown-item">Dominio</a>
+            <a class="dropdown-item">Tipo de Pregunta</a>
+            <a class="dropdown-item">Respuestas</a>
+            <a class="dropdown-item">Poderacion</a>
+            <a class="dropdown-item">Área Geografica</a>
+            <a class="dropdown-item">Centro de Trabajo</a>
+            <a class="dropdown-item">Nivel de Riesgo</a>
+            <a class="dropdown-item">Sexo</a>
+            <a class="dropdown-item">Edad</a>
+            <a class="dropdown-item">Estado Civil</a>
+            <a class="dropdown-item">Nivel de Estudios</a>
+            <a class="dropdown-item">Puesto</a>
+            <a class="dropdown-item">Tipo de Puesto</a>
+            <a class="dropdown-item">Tipo Contratación</a>
+            <a class="dropdown-item">Tipo Personal</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Usuarios</a>
+        </li>
+        <li class="nav-item dropdown" routerLinkActive="active">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Cuestionarios
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['catalogos','seccion']">Sección</a>
+            <a class="dropdown-item" [routerLink]="['catalogos','area']">Área de Trabajo</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown" routerLinkActive="active">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Reportes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['catalogos','seccion']">Sección</a>
+            <a class="dropdown-item" [routerLink]="['catalogos','area']">Área de Trabajo</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

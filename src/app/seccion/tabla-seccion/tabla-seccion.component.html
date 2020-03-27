@@ -1,0 +1,61 @@
+<!-- Tabla de donde se muestran los datos -->
+
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+  <table class="table table-hover table-striped" id="DatosT">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Fecha Alta</th>
+        <th scope="col">Fecha Modificación</th>
+        <th scope="col">Nombre Creador</th>
+        <th scope="col">Nombre Editor</th>
+        <th scope="col">Estatus</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- interacion de los catalogos y paginacion de la tabla -->
+      
+      <tr *ngFor="let seccion of catalogo.reverse() | paginate: { itemsPerPage: 10, currentPage: paginaActual }">
+        <td>{{ seccion.id }}</td>
+        <td>{{ seccion.descripcion }}</td>
+        <td>{{ formatoFecha(seccion.fechaAlta) }}</td>
+        <td>{{ formatoFecha(seccion.fechaModificacion) }}</td>
+        <td> Luis E. Cortés</td>
+        <td *ngIf="seccion.idUsuarioModificacion; else noModificado"><span>Luis E. Cortés</span></td>
+        <ng-template #noModificado>
+          <td>No modificado</td>
+        </ng-template>
+        <td *ngIf="seccion.idCatEstatus; else inactivo" class="">
+          <span>Activo</span>
+        </td>
+        <ng-template #inactivo>
+          <td><span>Inactivo</span></td>
+        </ng-template>
+        <td >
+          <!-- <button class="btn btn-primary mr-md-1 mr-lg-2" (click)="mostrarEditar(seccion.id)" data-toggle="modal"
+            data-target="#modalP" role="button"><i class="fas fa-edit"></i></button> -->
+          <button class="btn btn-primary mr-md-1 mr-lg-2" (click)="mostrarEditar(seccion.id)" role="button"><i class="fas fa-edit"></i></button>
+          <button class="btn btn-danger borrar" role="button" data-toggle="tooltip" data-placement="top"
+          title="Haz click para Eliminar un catalogo" (click)='eliminarCatalogo(seccion.id)'><i class="fas fa-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Paginado de la tabla  -->
+
+<pagination-controls (pageChange)="paginaActual = $event" previousLabel="Anterior" nextLabel="Siguiente" class="mb-5"></pagination-controls>
+
+<!-- Parte del modal -->
+
+<!-- <div *ngIf="editar"> -->
+<div class="mb-5" *ngIf="editar">
+  <!-- <app-editar-seccion [ide]="ide" (cat)="cat = $event"></app-editar-seccion> -->
+  <app-editar-seccion [ide]="ide"></app-editar-seccion>
+  <div [ngClass]="{'show': editar, 'fade': editar, 'modal-backdrop': editar}"></div>
+
+</div>
